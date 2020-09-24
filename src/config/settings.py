@@ -28,10 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
- 
     "rest_framework",
     "drf_yasg",
-
     "app",
 ]
 
@@ -69,9 +67,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
@@ -120,5 +118,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), 'static'))
+STATIC_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "static"))
 STATICFILES_DIRS = []

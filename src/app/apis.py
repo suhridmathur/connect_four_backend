@@ -1,7 +1,12 @@
 import uuid
 
 from app.mongo import MoveService, BoardService
-from app.serializers import MoveSerializer, BoardSerializer, NewMoveSerializer, TokenSerializer
+from app.serializers import (
+    MoveSerializer,
+    BoardSerializer,
+    NewMoveSerializer,
+    TokenSerializer,
+)
 from app.service import has_won
 
 from drf_yasg.utils import swagger_auto_schema
@@ -76,6 +81,7 @@ class Board(APIView):
     Board API, which returns the current state of
     a board.
     """
+
     @swagger_auto_schema(responses={200: BoardSerializer})
     def get(self, request, token):
         board_service = BoardService()
