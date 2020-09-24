@@ -1,14 +1,17 @@
 import uuid
 
 from app.mongo import MoveService, BoardService
-from app.serializers import MoveSerializer, BoardSerializer, NewMoveSerializer
+from app.serializers import MoveSerializer, BoardSerializer, NewMoveSerializer, TokenSerializer
 from app.service import has_won
+
+from drf_yasg.utils import swagger_auto_schema
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
 class NewGame(APIView):
+    @swagger_auto_schema(responses={200: TokenSerializer})
     def get(self, request, *args, **kwargs):
         """
         Returns a token for a particular game, and
@@ -33,6 +36,7 @@ class NewGame(APIView):
 
 
 class Moves(APIView):
+    @swagger_auto_schema(responses={200: MoveSerializer})
     def get(self, request, token):
         """
         Get moves for a particular game using token
@@ -68,6 +72,11 @@ class Moves(APIView):
 
 
 class Board(APIView):
+    """
+    Board API, which returns the current state of
+    a board.
+    """
+    @swagger_auto_schema(responses={200: BoardSerializer})
     def get(self, request, token):
         board_service = BoardService()
         board = board_service.get_board(token)
