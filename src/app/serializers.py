@@ -70,3 +70,7 @@ class NewMoveSerializer(serializers.Serializer):
         board_service.update(token, board_json)
         move_service.update(token, moves_json)
         return column, board
+
+
+class TokenSerializer(serializers.Serializer):
+    token = serializers.CharField()

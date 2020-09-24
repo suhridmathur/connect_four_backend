@@ -16,7 +16,7 @@ SECRET_KEY = "_mu8vs8b=)t)!r)mtc@&ho#et6jjp*bu*z_3k5gl42e@v7^15%"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["connectfour.suhridmathur.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["connectfour.suhridmathur.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -28,7 +28,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+ 
     "rest_framework",
+    "drf_yasg",
+
     "app",
 ]
 
