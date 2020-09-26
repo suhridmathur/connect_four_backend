@@ -6,6 +6,7 @@ from app.serializers import (
     BoardSerializer,
     NewMoveSerializer,
     TokenSerializer,
+    MoveInputSerializer,
 )
 from app.service import has_won
 
@@ -54,6 +55,7 @@ class Moves(APIView):
 
         return Response(serializer.data)
 
+    @swagger_auto_schema(request_body=MoveInputSerializer)
     def post(self, request, token):
         """
         1. Checks if move is valid
