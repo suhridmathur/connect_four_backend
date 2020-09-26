@@ -74,3 +74,9 @@ class NewMoveSerializer(serializers.Serializer):
 
 class TokenSerializer(serializers.Serializer):
     token = serializers.CharField()
+
+
+class MoveInputSerializer(serializers.Serializer):
+    column = serializers.IntegerField(
+        validators=[MinValueValidator(0), MaxValueValidator(6)]
+    )
